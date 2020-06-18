@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: authentication-api
+
+server:
+  port: 8084
+  ssl:
+    enabled: true
+    client-auth: need
+    key-store: classpath:keystore/server-keystore.jks
+    key-store-type: JCEKS
+    key-store-password: changeit
+    key-alias: authentication-api
+    trust-store: classpath:keystore/server-truststore.jks
+    trust-store-type: JCEKS
+    trust-store-password: changeit
+
+jws:
+  secret: pT5TtksoFHAfggczDcM-7wOJliPsdnrz7owV94-A0WDVbQssuSo1btVItLY7ILI-_6DZ4ZbFZO7ffhwj2FihaITqXQ9r3jC3xCDxTPrtWGBlBZzHSvCtAH1IQVri2SQT70pAhVF0K0y9mmVxSCBWKq6UKCeLks5Nwdk7zYfD7szHAvYkwowMOMDaXt8WFOlk-RwW4JoCnHkHwJtv-1vYzJ3ZXOa8m0gh-K3WtyBCLT6lTIXsag5ZYSVENj22GxS3oF4pVzbAQVzRHCJ-Eg7Ms7vv36Ng6TjYbFw8dQNDTkfbAyBbPnRsmzwYaDpeXF21zFFIJ8LVrTTkxsQfZw-Ev-b7rZsMSPvIIo5GbQJ1i98AHqIEcUzQCaJionaLwOqJS95m-sya5JYnL58CEqJBEQfLjq4VprPw3bJjC6TeSCWx-OjHJrpGvKsKYHizyuMqk-54BCNPvrDZn1WwfwI48ZxNlEJ7ggJ7HVQ2NbHkSKWaeZL4EqdCFgSfZtJvQMFT-sOSXSgowgr0E7lNAWuTIL6jqn9rX63pyBFXqh410sb17NDJxVdoVDrG4G7hgzdSf7fT6sPWJyOcjIxyp1tjkdSfbH3nA7QIZo08_1kX9Arxb1W3qcBgkYvjPfZ8lUDkA6a6B0S4KT3YkVUzEUD96Ex-Q3ZzrR9R4XlOyemAGgs=
+
+accounts-api:
+  uriTemplate: https://localhost:8444/accounts/{accountNumber}
+  keystore:
+    path: classpath:keystore/accounts-api-keystore.jks
+    password: changeit
+  key:
+    password: changeit
+  truststore:
+    path: classpath:keystore/accounts-api-truststore.jks
+    password: changeit
