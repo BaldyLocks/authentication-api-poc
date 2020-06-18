@@ -16,20 +16,19 @@ import org.springframework.web.client.RestTemplate;
 
 @Configuration
 public class AccountsApiConnectorConfig {
-
-    @Value("${accounts-api.keystore.path}")
-    private String keystorePath;
-    @Value("${accounts-api.keystore.password}")
-    private String keystorePassword;
-    @Value("${accounts-api.key.password}")
-    private String keyPassword;
-    @Value("${accounts-api.truststore.path}")
-    private String truststorePath;
-    @Value("${accounts-api.truststore.password}")
-    private String truststorePassword;
-
     @Bean
-    public RestTemplate restTemplate() throws IOException, GeneralSecurityException{
+    public RestTemplate restTemplate(
+        @Value("${accounts-api.keystore.path}")
+        String keystorePath,
+        @Value("${accounts-api.keystore.password}")
+        String keystorePassword,
+        @Value("${accounts-api.key.password}")
+        String keyPassword,
+        @Value("${accounts-api.truststore.path}")
+        String truststorePath,
+        @Value("${accounts-api.truststore.password}")
+        String truststorePassword
+    ) throws IOException, GeneralSecurityException{
 
         File keystoreFile = ResourceUtils.getFile(keystorePath);
         File truststoreFile = ResourceUtils.getFile(truststorePath);

@@ -11,6 +11,7 @@ public class AccountRegistrationRequest{
 
     @NotEmpty
     private String username;
+    @NotEmpty
     @Size(min = 6, message = "Minimal password length is 6 characters")
     private String password;
     @NotNull
